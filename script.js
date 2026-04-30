@@ -69,6 +69,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Background music toggle
+    const musicToggleBtn = document.getElementById('musicToggleBtn');
+    const bgMusic = document.getElementById('bgMusic');
+    if (musicToggleBtn && bgMusic) {
+        const musicIcon = musicToggleBtn.querySelector('i');
+        const musicText = musicToggleBtn.querySelector('span');
+
+        const updateMusicButton = (isPlaying) => {
+            if (isPlaying) {
+                musicIcon.classList.remove('fa-music');
+                musicIcon.classList.add('fa-pause');
+                musicText.textContent = 'Music On';
+                musicToggleBtn.classList.add('is-playing');
+            } else {
+                musicIcon.classList.remove('fa-pause');
+                musicIcon.classList.add('fa-music');
+                musicText.textContent = 'Music Off';
+                musicToggleBtn.classList.remove('is-playing');
+            }
+        };
+
+        updateMusicButton(false);
+
+        musicToggleBtn.addEventListener('click', async () => {
+            if (bgMusic.paused) {
+                try {
+                    await bgMusic.play();
+                    updateMusicButton(true);
+                } catch (error) {
+                    console.error('Music could not be started:', error);
+                    updateMusicButton(false);
+                }
+            } else {
+                bgMusic.pause();
+                updateMusicButton(false);
+            }
+        });
+    }
+
     // Ripple effect for the hero download button
     const heroBtn = document.getElementById('heroDownloadBtn');
     if (heroBtn) {

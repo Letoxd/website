@@ -31,6 +31,10 @@
         </div>
         <div class="nav-right">
             <button class="theme-toggle-btn" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+            <button class="music-toggle-btn" id="musicToggleBtn" title="Toggle Music">
+                <i class="fa-solid fa-music"></i>
+                <span>Music Off</span>
+            </button>
             <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
         </div>
     </nav>
@@ -136,6 +140,10 @@
             </div>
         </div>
     </footer>
+
+    <audio id="bgMusic" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
     <script src="script.js"></script>
 </body>

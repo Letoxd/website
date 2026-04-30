@@ -155,6 +155,34 @@ a {
     color: var(--accent-primary);
 }
 
+.music-toggle-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid transparent;
+    color: var(--text-muted);
+    height: 36px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0 0.75rem;
+}
+
+.music-toggle-btn:hover {
+    background: rgba(168, 85, 247, 0.2);
+    color: var(--accent-primary);
+}
+
+.music-toggle-btn.is-playing {
+    border-color: rgba(168, 85, 247, 0.5);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.35);
+}
+
 .mobile-menu-btn {
     display: none;
     background: none;
@@ -425,6 +453,16 @@ a {
 @media (max-width: 768px) {
     .nav-right .btn-signin-primary, .nav-right .theme-toggle-btn {
         display: none;
+    }
+
+    .music-toggle-btn span {
+        display: none;
+    }
+
+    .music-toggle-btn {
+        width: 36px;
+        padding: 0;
+        font-size: 1rem;
     }
     
     .mobile-menu-btn {
